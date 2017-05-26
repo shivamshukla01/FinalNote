@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>NotesGeek.com</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+{% load staticfiles %}
+
+<link rel="stylesheet" href="{% static "noteapp/css/bootstrap.css" %}">
+<link rel="stylesheet" href="{% static "noteapp/css/styles.css" %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="banner" class="container-fluid">
+      <div class="row">
+        <div class="col-md-12"><h2 align="center">NotesGeek.com <sup><small>BETA</small></sup></h2></div>
+      </div>
+    </div>
+    
+
+     <!-- Fixed navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand navbar-brand-hidden" href="{% url 'index' %}">NotesGeek.com</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Branch <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'branchview' shortname='all' %}">ALL</a></li>
+                <li><a href="{% url 'branchview' shortname='cse' %}">CSE</a></li>
+                <li><a href="{% url 'branchview' shortname='eee' %}">EEE</a></li>
+                <li><a href="{% url 'branchview' shortname='it' %}">IT</a></li>
+                <li><a href="{% url 'branchview' shortname='ece' %}">ECE</a></li>
+                <li><a href="{% url 'branchview' shortname='me' %}">ME</a></li>
+                <li><a href="{% url 'branchview' shortname='bio' %}">BIOTECH</a></li>
+                <li><a href="{% url 'branchview' shortname='et' %}">E&amp;T</a></li>
+                <li><a href="{% url 'branchview' shortname='ce' %}">CIVIL</a></li>
+              </ul>
+            </li>
+            <li><a href="{% url 'comingsoon' %}">Previous Year Questions</a></li>
+            <li><a href="{% url 'comingsoon' %}">Upload</a></li>
+            <li><a href="{% url 'comingsoon' %}">Contact Us</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+    {% block content %}
+
+
+
+
+
+    {% endblock %}
+
+    <div class="container-fluid footer">
+    	 
+    	 <div class= "container">
+    	 <div class="row">
+    	 	<div class="col-md-12">
+    	 	<br><br>
+    	 	</div>
+    	 </div>
+    	 <div class="row">
+        	<div class="col-md-8">
+          		<div class="row alllinks">
+            		<div class="col-md-4">
+            			<div>
+  							
+  							<a href="#">Meet The Team</a>
+  							<br>
+  							<a href="#">About Us</a>
+  							<br>
+  							<a href="#">Info</a>
+  							<br>
+						</div>
+            		</div>
+            		<div class="col-md-4">
+            			<div>
+  							<a href="#">Contact us</a>
+  							<br>
+  							<a href="#">Report a bug</a>
+  							<br>
+  							<a href="#">Join us</a>
+  							<br>
+						</div>
+            		</div>
+            		<div class="col-md-4">
+            			<div>
+  							<a href="#">Disclaimer</a>
+  							<br>
+  							<a href="#">Terms of Use</a>
+  							<br>
+  							<a href="#">Privacy Policy</a>
+  							<br>
+  							<br>
+						</div>
+            		</div>
+          		</div>
+          	
+        	</div>
+       		<div class="col-md-4">
+       			<div class="footer-social-icons well well-sm">
+    				<h4>Follow us on</h4>
+    				<ul class="social-icons">
+        				<li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+        				<li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+        				<li><a href="" class="social-icon"> <i class="fa fa-rss"></i></a></li>
+        				<li><a href="" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
+        				<li><a href="" class="social-icon"> <i class="fa fa-linkedin"></i></a></li>
+        				<li><a href="" class="social-icon"> <i class="fa fa-google-plus"></i></a></li>
+    				</ul>
+				</div>
+       		</div>
+      	</div>
+      	<br>
+
+    	</div>
+
+    </div>
+    <div class="container-fluid footer2">
+
+    	<div class= "container">
+    	 <div class="row">
+    	 	<div class="col-md-12"><h5>&copy; Copyright 2017. All Rights Reserved.</h5></div>
+    	 </div>
+    	</div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static "noteapp/js/bootstrap.js" %}"></script>
+    <script src="{% static "noteapp/js/myjs.js" %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+
+  </body>
+</html>

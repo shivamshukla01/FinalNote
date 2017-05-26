@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+        <ol class="breadcrumb">
+  			<li class="breadcrumb-item"><a href="{% url 'index' %}">HOME</a></li>
+  			<li class="breadcrumb-item"><a href="{% url 'branchview' shortname='all' %}">BRANCHES</a></li>
+  			<li class="breadcrumb-item active">{{branch.branchname}}</li>
+		</ol>
+		</div>
+    </div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+	{% for subject in subjects %}
+
+		<div class=" container col-lg-3 col-md-4 col-sm-6 col-xs-12">
+	
+    <div class="subbox panel">
+                                <!--<span class="ribbon_course"></span>-->
+                                <a href="{% url 'subjectview' pk=subject.pk %}" class="box-image">
+                                <div class="photo" style="background-color: {% cycle '#ffb3b3' '#00cccc' '#b3b3ff' '#ffd9b3' '#ffcc66' '#99ff99' '#ff6666' %};">
+                                    <span class="word">
+                                    {{subject.abbrev}}
+                                    </span>
+                                </div></a>
+                                <div class="cat"><a href="{% url 'subjectview' pk=subject.pk %}">Course:
+                                        Engineering</a>
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="subname" style="width:100%;">
+                                            <a href="{% url 'subjectview' pk=subject.pk %}">{{subject.title}}</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+    </div>
+    </div>
+    {% endfor %}
+	</div>
+</div>
+<br>
+<br>
+<br>
+
+{% endblock %}

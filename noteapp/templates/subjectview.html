@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+        <ol class="breadcrumb">
+  			<li class="breadcrumb-item"><a href="{% url 'index' %}">HOME</a></li>
+  			<li class="breadcrumb-item"><a href="{% url 'branchview' shortname='all' %}">SUBJECTS</a></li>
+  			<li class="breadcrumb-item active">{{subject.title}}</li>
+		</ol>
+		</div>
+    </div>
+
+	<div class="row">
+		<div class="col-md-9">
+	 		<h2 class="subjectpageheader">Notes available for {{subject.title}} :</h2>
+	 		<br><br>
+	 		{% for note in notes %}
+	 		<div class="listgroup notelistitem">
+	 		<a href="{% url 'noteview' pk=note.pk %}" class="list-group-item list-group-item-action ">
+        				<div class="numberSquare">
+        					<span>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' %}</span>
+        				</div>
+        				<div class="relative2">
+        					<h2>{{note.title}}</h2>
+                            <br>
+                            <h3><span class="glyphicon glyphicon-user"></span> Author: {{note.author}}
+                            <br>
+                            <span class="glyphicon glyphicon-pencil"></span> published on {{note.created_date|date:"D,d M Y"}}
+                            
+        				</div>
+  			</a>
+  			</div>
+			{% endfor %}
+		<br><br><br>
+		</div>
+	</div>
+</div>	
+	
+{% endblock %}
