@@ -25,7 +25,7 @@ SECRET_KEY = 'lx!6)-%2x1@5smy9#iclles7x(z_k-^#b&4ikdoeqf=h62apu0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.104.50.5','notesgeek.com','www.notesgeek.com']
+ALLOWED_HOSTS = ['172.104.50.5','notesgeek.com','www.notesgeek.com','127.0.0.1',]
 
 
 # Application definition
