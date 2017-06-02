@@ -1,3 +1,16 @@
+/*header logo and text */
+.logopic{
+    width:60px;
+    height:auto;
+}
+
+.logotext{
+    height:30px;
+    width:auto;
+}
+
+/*finished header logo and text */
+
  .numberCircle {
     border-radius: 50%;
     width: 80px;   /*adjust width */
@@ -73,6 +86,7 @@
     background-color: #0fbd49;
     width:100%;
     color:#d1fadf;
+    padding-left: 5px;
 }
 
 .subname{

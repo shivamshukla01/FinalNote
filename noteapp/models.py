@@ -4,6 +4,7 @@ from django.utils import timezone
 class Subject(models.Model):
 	title=models.CharField(max_length=100, null=True)
 	abbrev=models.CharField(max_length=20, default='TBA')
+	year=models.IntegerField(null=True)
 
 	def __str__(self):
 		return self.title
