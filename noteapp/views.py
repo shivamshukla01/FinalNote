@@ -14,6 +14,9 @@ def index(request):
 	subjects=Subject.objects.all()
 	f=notes.filter(published_date__lte=timezone.now())
 	notes=f.order_by('-created_date')[:4]
+
+	g=subjects.filter(featured=True)
+	subjects2=g[:4]
 	for branch in branches:
 		branch.non=0
 		inc=branch.included_subjects.all()
@@ -29,7 +32,7 @@ def index(request):
 	return render(
 		request,
 		'index.html',
-		context={'notes':notes, 'branches':branches, 'subjects':subjects},
+		context={'notes':notes, 'branches':branches, 'subjects':subjects, 'subjects2':subjects2},
 	)
 
 
