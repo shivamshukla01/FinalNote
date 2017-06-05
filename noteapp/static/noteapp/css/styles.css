@@ -411,6 +411,23 @@ padding-top: 0;
   margin-left: 20%;
   margin-right:20%;
   text-align: center;
-
+}
 /*aboutpage end */
 
+.contactpageheader {
+        color: #15BC12;
+        font-size: 50px;
+        padding: 10px;
+        font-family:  Times, serif ;
+    }
+
+.bigicon {
+        width: 50px;
+        color: #15BC12;
+    }
+
+.subhead{
+   text-align: center;
+    font-family:  Times, serif ; 
+    padding-bottom: 5px;
+}
