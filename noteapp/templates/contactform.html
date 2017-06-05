@@ -1,186 +1,54 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-    	
-        
-        <div class="row">
-        <div class="col-md-12"><h1 class="sectiontitle" align="center">FEATURED SUBJECTS</h1>
-   
 
-
-<div class=" container col-lg-3 col-md-4 col-sm-6 col-xs-12">
-    <div class="subbox panel">
-                                <!--<span class="ribbon_course"></span>-->
-                                <a href="" class="box-image">
-                                <div class="photo" style="background-color: #00cccc;">
-                                    <span class="word">
-                                    CSE
-                                    </span>
-                                </div></a>
-                                <div class="cat"><a href="">Course:
-                                        Engineering</a>
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="subname" style="width:100%;">
-                                            <a href="">Control System Engineering Mechanics</a>
-
-                                        </div>
-                                    </div>
-                                </div>
-    </div>
-    </div>
-
- <div class=" container col-lg-3 col-md-4 col-sm-6 col-xs-12">
-    <div class="subbox panel">
-                                <!--<span class="ribbon_course"></span>-->
-                                <a href="" class="box-image">
-                                <div class="photo" style="background-color: #ffb3b3;">
-                                    <span class="word">
-                                    CSE
-                                    </span>
-                                </div></a>
-                                <div class="cat"><a href="">Course:
-                                        Engineering</a>
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="subname" style="width:100%;">
-                                            <a href="">Control System Engineering Mechanics</a>
-
-                                        </div>
-                                    </div>
-                                </div>
-    </div>
-    </div>
-
-     <div class=" container col-lg-3 col-md-4 col-sm-6 col-xs-12">
-    <div class="subbox panel">
-                                <!--<span class="ribbon_course"></span>-->
-                                <a href="" class="box-image">
-                                <div class="photo" style="background-color: #b3b3ff;">
-                                    <span class="word">
-                                    CSE
-                                    </span>
-                                </div></a>
-                                <div class="cat"><a href="">Course:
-                                        Engineering</a>
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="subname" style="width:100%;">
-                                            <a href="">Control System Engineering Mechanics</a>
-
-                                        </div>
-                                    </div>
-                                </div>
-    </div>
-    </div>
-
-     <div class=" container col-lg-3 col-md-4 col-sm-6 col-xs-12">
-    <div class="subbox panel">
-                                <!--<span class="ribbon_course"></span>-->
-                                <a href="" class="box-image">
-                                <div class="photo" style="background-color: #ffd9b3;">
-                                    <span class="word">
-                                    CSE
-                                    </span>
-                                </div></a>
-                                <div class="cat"><a href="">Course:
-                                        Engineering</a>
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="subname" style="width:100%;">
-                                            <a href="">Control System Engineering Mechanics</a>
-
-                                        </div>
-                                    </div>
-                                </div>
-    </div>
-    </div>
-
-
-
-              
-        
-            </div>
-        </div>
-
-        <br>
-        <br>
-        <br>
-
-        <div class="row">
-			
-			<div class="col-md-12"><h1 class="sectiontitle" align="center">SELECT YOUR BRANCH</h1>
-		  
-		  
-				<div class="col-sm-12 col-md-12 "> 
-        			{% for branch in branches %}
-                    
-                    <div class="sec1 col-md-6">
-        				<div class="numberCircle">
-        					<span>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' %}</span>
-        				</div>
-        				<div class="relative">
-        					<a href="{% url 'branchview' shortname=branch.branch_short %}"><h2>{{branch.branchname}}</h2></a>
-                            <br>
-                            <div class= "subsummary"><span class="glyphicon glyphicon-education"></span> Subjects: {{branch.nos}} | <span class="glyphicon glyphicon-duplicate"></span>Notes: {{branch.non}}
+     <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form name="form" class="form-horizontal" action = "{% url "savemessage" %}"  method="POST" >{% csrf_token %}
+                    <fieldset>
+                        <legend class="text-center header">Contact us</legend>
+                        <h2 class="subhead">Feel free to Contact us</h2>
+ 
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="fname" name="fname" type="text" placeholder="First Name" class="form-control">
                             </div>
-        				</div>
-        			</div>
-                    {% endfor %}  
+                        </div>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="lname" name="lname" type="text" placeholder="Last Name" class="form-control">
+                            </div>
+                        </div>
 
-                </div>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
+                            </div>
+                        </div>
+
+                       
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="message" name="message" placeholder="Enter your message for us here." rows="7"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg" value="sendmessage">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
-
-        <div class="row">
-        <div class="col-md-12"><h1 class="sectiontitle" align="center">LATEST UPLOADS</h1>
-   
-
-    {% for note in notes %}
-    <div class=" container col-lg-3 col-md-4 col-sm-6 col-xs-12">
-    <div class="subbox panel">
-                                <!--<span class="ribbon_course"></span>-->
-                                <a href="{{note.srcfile}}">
-                                <div class="photo" style="background-color: {% cycle '#ffb3b3' '#00cccc' '#b3b3ff' '#ffd9b3' '#ffcc66' '#99ff99' '#ff6666' %};">
-                                    <span class="word">
-                                    {{note.abbr}}
-                                    </span>
-                                </div></a>
-                                <div class="cat"><a href="{{note.srcfile}}">
-                                        Uploaded: {{ note.created_date|date:"D,d M Y" }}</a>
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="subname" style="width:100%;">
-                                            <a href="{{note.srcfile}}">{{note.title}}</a>
-
-                                        </div>
-                                    </div>
-                                </div>
     </div>
-    </div>
-
-    {% endfor %}
-
-
-
-              
-        
-     	 	</div>
-    	</div>
-
-<br>
-<br>
-<br>
-<br>
-
-
-</div>	
-
+</div>
 
 {% endblock %}

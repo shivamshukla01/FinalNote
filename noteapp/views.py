@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Note, Subject, Branch
 from django.http import Http404
+from .forms import Contactform
 
 def index(request):
 	"""
@@ -82,3 +83,20 @@ def comingsoon(request):
 		'comingsoon.html',
 		context={},
 	)
+
+
+def contact(request):
+	return render(
+		request,
+		'contactform.html',
+		context={},
+	)
+
+def savemessage(request):
+	if request.method == "POST":
+		MyContactform = Contactform(request.POST)
+
+		if MyContactform.is_valid():
+			new_contact=MyContactform.save()
+			fname=new_contact.fname
+		return render(request, 'contactpost.html', {"fname":fname})

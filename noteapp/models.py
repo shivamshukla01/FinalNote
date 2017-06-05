@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.forms import ModelForm
 
 class Subject(models.Model):
 	title=models.CharField(max_length=100, null=True)
@@ -39,3 +40,12 @@ class Branch(models.Model):
 
 	def __str__(self):
 		return self.branchname	
+
+class Contact(models.Model):
+	fname=models.CharField(max_length=100)
+	lname=models.CharField(max_length=100)
+	email= models.EmailField(max_length=100)
+	message=models.CharField(max_length=1500)
+	def __str__(self):
+		return self.fname
+

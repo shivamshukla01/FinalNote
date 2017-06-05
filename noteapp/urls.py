@@ -10,5 +10,7 @@ urlpatterns = [
 	url(r'^subject/(?P<pk>\d+)/$', views.subjectview, name='subjectview'),
 	url(r'^note/(?P<pk>\d+)/$', views.noteview, name='noteview'),
 	url(r'^comingsoon/$', views.comingsoon, name='comingsoon'),
+	url(r'^contact/$', views.contact, name='contact'),
+	url(r'^contactpost/$', views.savemessage, name='savemessage'),
 	url(r'^about/',TemplateView.as_view(template_name = 'about.html'), name='about'),
 ]
