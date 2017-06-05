@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+<div class="container">
+        
+    <div>
+        <img class="aboutpic1" src ="{% static "noteapp/images/aboutpic1.png" %}">
+    </div>
+     
+    <div class="container">
+        <div class="aboutheading">
+            <h1><strong>ABOUT US</strong></h1>
+        </div>
+        <div class="aboutpara">
+
+            <h4>We at <a href="http://notesgeek.com"  style="text-decoration:none;">NotesGeek.com</a> provide Free and Quality content to the students from different courses and universities, we are just some geeks trying to help out our friends in need!</h4>
+        </div>
+    </div>
+</div> 
+
+{% endblock %}

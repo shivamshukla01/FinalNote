@@ -201,7 +201,8 @@
     color: #d1fadf;
     background-color: #0fbd49;
 }
- removing active hightlighting
+ 
+/*removing active hightlighting */
 
 
 
@@ -384,4 +385,32 @@ ul.social-icons {
 .footer .well{
 	background-color:#0a762e;
 }
+
+/*aboutpage css*/
+
+.aboutheading h1{
+
+    text-align: center;
+    font-family:  Times, serif ; 
+    color: #15BC12;
+}
+
+img.aboutpic1 {
+    width: 300px;
+    
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.aboutpara{
+padding-top: 0;
+ margin-top: 0;
+ margin-bottom: 120px;
+  margin-left: 20%;
+  margin-right:20%;
+  text-align: center;
+
+/*aboutpage end */
 
