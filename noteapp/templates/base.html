@@ -56,18 +56,18 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Branch <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="{% url 'branchview' shortname='all' %}">ALL</a></li>
-                <li><a href="{% url 'branchview' shortname='cse' %}">CSE</a></li>
-                <li><a href="{% url 'branchview' shortname='eee' %}">EEE</a></li>
-                <li><a href="{% url 'branchview' shortname='it' %}">IT</a></li>
-                <li><a href="{% url 'branchview' shortname='ece' %}">ECE</a></li>
-                <li><a href="{% url 'branchview' shortname='me' %}">ME</a></li>
-                <li><a href="{% url 'branchview' shortname='bio' %}">BIOTECH</a></li>
-                <li><a href="{% url 'branchview' shortname='et' %}">E&amp;T</a></li>
-                <li><a href="{% url 'branchview' shortname='ce' %}">CIVIL</a></li>
+                <li><a href="{% url 'branchview' branchname='all' year='0' %}">ALL</a></li>
+                <li><a href="{% url 'branchview' branchname='cse' year='0' %}">CSE</a></li>
+                <li><a href="{% url 'branchview' branchname='eee' year='0' %}">EEE</a></li>
+                <li><a href="{% url 'branchview' branchname='it' year='0' %}">IT</a></li>
+                <li><a href="{% url 'branchview' branchname='ece' year='0' %}">ECE</a></li>
+                <li><a href="{% url 'branchview' branchname='me' year='0' %}">ME</a></li>
+                <li><a href="{% url 'branchview' branchname='bio' year='0' %}">BIOTECH</a></li>
+                <li><a href="{% url 'branchview' branchname='et' year='0' %}">E&amp;T</a></li>
+                <li><a href="{% url 'branchview' branchname='ce' year='0' %}">CIVIL</a></li>
               </ul>
             </li>
-            <li><a href="{% url 'comingsoon' %}">Previous Year Questions</a></li>
+            <li><a href="{% url 'paperbranchview' branchname='all' year='0' %}">Previous Year Questions</a></li>
             <li><a href="{% url 'comingsoon' %}">Upload</a></li>
             <li><a href="{% url 'contact' %}">Contact Us</a></li>
           </ul>

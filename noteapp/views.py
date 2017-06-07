@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Note, Subject, Branch
+from .models import Note, Subject, Branch, Paper
 from django.http import Http404
 from .forms import Contactform
 
@@ -36,29 +36,48 @@ def index(request):
 	)
 
 
-def branchview(request, shortname='all'):
+def branchview(request, branchname='all', year='0'):
 	branches=Branch.objects.all()
 	subjects=Subject.objects.all()
 	flag=0
-	if(shortname=='all'):
-			flag=1
+	if(branchname=='all'):
 			branch=Branch.objects.get(branch_short="all")
-			return render(
-			request,
-			'branchview.html',
-			context={'branch':branch, 'subjects':subjects},
-		)
-
-	else:
-		for branch in branches:
-			if branch.branch_short==shortname:
+			if(year=='0'):
 				flag=1
-				subjects=branch.included_subjects.all()
 				return render(
 					request,
 					'branchview.html',
-					context={'branch':branch, 'subjects':subjects},
+					context={'selectedbranch':branch, 'subjects':subjects,'year':year, 'branches':branches},
+				)
+			else:
+				flag=1
+				subjects=branch.included_subjects.filter(year=year)
+				return render(
+					request,
+					'branchview.html',
+					context={'selectedbranch':branch, 'subjects':subjects,'year':year, 'branches':branches},
+				)
+	else:
+		for branch in branches:
+			if branch.branch_short==branchname:
+				if(year=='0'):	
+					flag=1
+					subjects=branch.included_subjects.all()
+					return render(
+						request,
+						'branchview.html',
+						context={'selectedbranch':branch, 'subjects':subjects,'year':year, 'branches':branches},
 					)
+				else:
+					flag=1
+					subjects=branch.included_subjects.filter(year=year)
+					return render(
+					request,
+					'branchview.html',
+					context={'selectedbranch':branch, 'subjects':subjects,'year':year, 'branches':branches},
+				)
+
+
 	if(flag==0):
 		raise Http404("Subject does not exist")		
 
@@ -103,3 +122,66 @@ def savemessage(request):
 			new_contact=MyContactform.save()
 			fname=new_contact.fname
 		return render(request, 'contactpost.html', {"fname":fname})
+
+
+def paperbranchview(request, branchname='all', year= '0'):
+	branches=Branch.objects.all()
+	subjects=Subject.objects.all()
+	flag=0
+	if(branchname=='all'):
+			branch=Branch.objects.get(branch_short="all")
+			if(year=='0'):
+				flag=1
+				return render(
+					request,
+					'paperbranchview.html',
+					context={'selectedbranch':branch, 'subjects':subjects,'year':year, 'branches':branches},
+				)
+			else:
+				flag=1
+				subjects=branch.included_subjects.filter(year=year)
+				return render(
+					request,
+					'paperbranchview.html',
+					context={'selectedbranch':branch, 'subjects':subjects,'year':year, 'branches':branches},
+				)
+	else:
+		for branch in branches:
+			if branch.branch_short==branchname:
+				if(year=='0'):	
+					flag=1
+					subjects=branch.included_subjects.all()
+					return render(
+						request,
+						'paperbranchview.html',
+						context={'selectedbranch':branch, 'subjects':subjects,'year':year, 'branches':branches},
+					)
+				else:
+					flag=1
+					subjects=branch.included_subjects.filter(year=year)
+					return render(
+					request,
+					'paperbranchview.html',
+					context={'selectedbranch':branch, 'subjects':subjects,'year':year, 'branches':branches},
+				)
+
+
+	if(flag==0):
+		raise Http404("Subject does not exist")
+
+def papersubjectview(request, pk):
+	subject=Subject.objects.get(pk=pk)
+	papers=subject.paper_set.all()
+	return render(
+		request,
+		'papersubjectview.html',
+		context={'papers':papers, 'subject':subject},
+	)
+
+def paperview(request, pk):
+	paper=Paper.objects.get(pk=pk)
+	return render(
+		request,
+		'paperview.html',
+		context={'paper':paper},
+	)

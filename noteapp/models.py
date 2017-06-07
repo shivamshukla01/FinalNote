@@ -30,6 +30,36 @@ class Note(models.Model):
 		return self.title
 
 
+
+class Paper(models.Model):
+	subj=models.ForeignKey(Subject, default=1)
+	title=  models.CharField(max_length=100)
+	year=models.CharField(max_length=100)
+	CATEGORY_CHOICES = (
+		('MINOR', 'Minor'),
+		('MAJOR', 'Major'),
+	)
+	category = models.CharField(
+		max_length= 6,
+		choices=CATEGORY_CHOICES,
+		default='MAJOR',
+	)
+	author= models.ForeignKey('auth.User')	
+	srcfile= models.CharField(max_length=200, null=True)
+	created_date= models.DateTimeField(default=timezone.now)
+	published_date=models.DateTimeField(blank=True , null=True)
+
+
+	
+	
+	def publish(self):
+		self.published_date=timezone.now()
+		self.save()
+
+	def __str__(self):
+		return self.title
+
+
 class Branch(models.Model):
 	branchname=models.CharField(max_length=100, null=True)
 	branch_short=models.CharField(max_length=100,null=True)

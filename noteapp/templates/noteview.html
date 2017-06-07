@@ -7,7 +7,7 @@
 		<div class="col-md-9">
         <ol class="breadcrumb">
   			<li class="breadcrumb-item"><a href="{% url 'index' %}">HOME</a></li>
-  			<li class="breadcrumb-item"><a href="{% url 'branchview' shortname='all' %}">SUBJECTS</a></li>
+  			<li class="breadcrumb-item"><a href="{% url 'branchview' branchname='all' year='0' %}">SUBJECTS</a></li>
   			<li class="breadcrumb-item"><a href="{% url 'subjectview' pk=note.subj.pk %}">{{note.subj}}</a></li>
   			<li class="breadcrumb-item active">{{note.title}}</li>
 		</ol>

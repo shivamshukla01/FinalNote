@@ -148,6 +148,8 @@
 
 .notelistitem a{
     height:120px;
+    overflow: hidden
+
 }
 
 .sec1{

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+        <ol class="breadcrumb">
+  			<li class="breadcrumb-item"><a href="{% url 'index' %}">HOME</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'paperbranchview' branchname='all' year='0' %}">QUESTION PAPERS</a></li>
+  			<li class="breadcrumb-item"><a href="{% url 'paperbranchview' branchname='all' year='0' %}">SUBJECTS</a></li>
+  			<li class="breadcrumb-item"><a href="{% url 'papersubjectview' pk=paper.subj.pk %}">{{paper.subj}}</a></li>
+  			<li class="breadcrumb-item active">{{paper.title}}</li>
+		</ol>
+		</div>
+    </div>
+    <h1 class="sectiontitle" align="center">QUESTION PAPER VIEW/DOWNLOAD</h1>
+      <div class="jumbotron">
+        <h2>Title:{{paper.title}}</h1>
+        <p>
+          <span class="glyphicon glyphicon-apple"></span> Subject: {{paper.subj}}
+          <br>
+          <span class="glyphicon glyphicon-check"></span>  Topics covered: {{paper.year}}
+          <br>
+          <span class="glyphicon glyphicon-user"></span> Category: {{paper.category}}
+          <br>
+          <span class="glyphicon glyphicon-export"></span> Published on: {{paper.created_date|date:"D,d M Y"}}
+
+        </p>
+        <p><a class="btn btn-primary btn-lg" href="{{paper.srcfile}}" role="button" target="_blank">View/Download</a></p>
+      </div>
+
+	
+</div>	
+	
+{% endblock %}

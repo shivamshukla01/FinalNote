@@ -57,7 +57,7 @@
         					<span>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' %}</span>
         				</div>
         				<div class="relative">
-        					<a href="{% url 'branchview' shortname=branch.branch_short %}"><h2>{{branch.branchname}}</h2></a>
+        					<a href="{% url 'branchview' branchname=branch.branch_short year='0' %}"><h2>{{branch.branchname}}</h2></a>
                             <br>
                             <div class= "subsummary"><span class="glyphicon glyphicon-education"></span> Subjects: {{branch.nos}} | <span class="glyphicon glyphicon-duplicate"></span>Notes: {{branch.non}}
                             </div>
