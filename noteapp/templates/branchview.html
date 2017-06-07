@@ -10,7 +10,7 @@
 		<div class="col-md-12">
         <ol class="breadcrumb">
   			<li class="breadcrumb-item"><a href="{% url 'index' %}">HOME</a></li>
-  			<li class="breadcrumb-item"><a href="{% url 'paperbranchview' branchname='all' year='0' %}">BRANCHES</a></li>
+  			<li class="breadcrumb-item"><a href="{% url 'branchview' branchname='all' year='0' %}">BRANCHES</a></li>
   			<li class="breadcrumb-item active">{{selectedbranch.branchname}}</li>
 		</ol>
 		</div>
@@ -26,7 +26,7 @@
   <select class="form-control" id="sel1" onchange="location = this.value;">
     <option selected disabled hidden>{{selectedbranch}}</option>
     {% for branch in branches %}
-    <option value="{% url 'paperbranchview' branchname=branch.branch_short year=year %}">{{branch.branchname}}</option>
+    <option value="{% url 'branchview' branchname=branch.branch_short year=year %}">{{branch.branchname}}</option>
     {% endfor %}
   </select>
   </div>
@@ -36,10 +36,10 @@
   <label for="sel1">Year:</label>
   <select class="form-control" id="sel1" onchange="location = this.value;">
     <option selected disabled hidden>{{year}}</option>
-    <option value="{% url 'paperbranchview' branchname=selectedbranch.branch_short year='1' %}">1</option>
-    <option value="{% url 'paperbranchview' branchname=selectedbranch.branch_short year='2' %}">2</option>
-    <option value="{% url 'paperbranchview' branchname=selectedbranch.branch_short year='3' %}">3</option>
-    <option value="{% url 'paperbranchview' branchname=selectedbranch.branch_short year='4' %}">4</option>
+    <option value="{% url 'branchview' branchname=selectedbranch.branch_short year='1' %}">1</option>
+    <option value="{% url 'branchview' branchname=selectedbranch.branch_short year='2' %}">2</option>
+    <option value="{% url 'branchview' branchname=selectedbranch.branch_short year='3' %}">3</option>
+    <option value="{% url 'branchview' branchname=selectedbranch.branch_short year='4' %}">4</option>
   </select>
   </div>
 </div>
