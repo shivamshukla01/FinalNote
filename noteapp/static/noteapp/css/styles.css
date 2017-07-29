@@ -427,6 +427,13 @@ padding-top: 0;
 }
 /*aboutpage end */
 
+/*privacy page css  start*/
+
+.privacypara {
+    font-size:20px;
+}
+/*privacy page css  end*/
+
 .contactpageheader {
         color: #15BC12;
         font-size: 50px;

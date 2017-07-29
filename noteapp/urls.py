@@ -13,7 +13,8 @@ urlpatterns = [
 	url(r'^contact/$', views.contact, name='contact'),
 	url(r'^contactpost/$', views.savemessage, name='savemessage'),
 	url(r'^about/',TemplateView.as_view(template_name = 'about.html'), name='about'),
-
+	url(r'^privacypolicy/',TemplateView.as_view(template_name = 'privacy.html'), name='privacy'),
+	url(r'^disclaimer/',TemplateView.as_view(template_name = 'disclaimer.html'), name='disclaimer'),
 	url(r'^paper/branch/(?P<branchname>.+)/(?P<year>[0-4]{1})$', views.paperbranchview, name='paperbranchview'),
 	url(r'^paper/subject/(?P<pk>\d+)/$', views.papersubjectview, name='papersubjectview'),
 	url(r'^paper/(?P<pk>\d+)/$', views.paperview, name='paperview'),
